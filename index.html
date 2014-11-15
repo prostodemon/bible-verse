@@ -2,8 +2,6 @@
 layout: default
 ---
 
-<div class="home">
-
   <h1 class="page-heading">Posts</h1>
 
   <ul class="post-list">
@@ -18,6 +16,14 @@ layout: default
     {% endfor %}
   </ul>
 
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
 
-</div>
+    <h1 class="page-heading">Verses</h1>
+
+
+<ul class="post-list">
+    {% for verse in site.verses %}
+    <li>
+        <a class="post-link" href="{{ verse.url | prepend: site.url }}">{{ verse.title }}</a>
+    </li>
+    {% endfor %}
+</ul>
