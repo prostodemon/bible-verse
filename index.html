@@ -4,10 +4,10 @@ layout: default
 
 {% for post in paginator.posts %}
 <div class="verse">
-    <h1 style="font-size: 7vmax; color: #556B2F">{{ post.title }}
+    <h1 style="font-size: 6vmax; color: #556B2F">{{ post.title }}
 
         <!-- Pagination links -->
-        <div class="pull-right" style="font-size: 7vmax; color: #5b5b5b">
+        <div class="pull-right" style="font-size: 6vmax; color: #5b5b5b">
             <span class="page_number ">{{ paginator.page }} из {{ paginator.total_pages }}</span>
             {% if paginator.previous_page %}
             <a href="{{ paginator.previous_page_path | prepend: site.url }}" class="previous btn btn-primary btn-lg"
