@@ -6,8 +6,8 @@ layout: default
 <div class="verse">
     <h1 style="font-size: 6vmax; color: #556B2F">
         <!-- Pagination links -->
-        <div class="pull-right" style="font-size: 4vmax; color: #5b5b5b; margin-top: 1vmax;">
-            <span class="page_number ">{{ paginator.page }} из {{ paginator.total_pages }}</span>
+        <div class="pull-right" style="font-size: 4vmax; color: #5b5b5b;">
+            <span class="page_number" style="margin-top: 0.5vmax;">{{ paginator.page }} из {{ paginator.total_pages }}</span>
             {% if paginator.previous_page %}
             <a href="{{ paginator.previous_page_path | prepend: site.url }}" class="previous btn btn-primary btn-lg"
                title="предыдущий стих">
