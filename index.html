@@ -39,15 +39,15 @@ layout: default
     <h1 style="font-size: 7vmax; color: #556B2F">{{ post.title }}
 
         <!-- Pagination links -->
-        <div class="right">
-            <span class="page_number ">Стих: {{ paginator.page }} из {{ paginator.total_pages }}</span>
+        <div class="pull-right" style="font-size: 5vmax; color: #5b5b5b">
+            <span class="page_number ">{{ paginator.page }} из {{ paginator.total_pages }}</span>
             {% if paginator.previous_page %}
-            <a href="{{ paginator.previous_page_path | prepend: site.url }}" class="previous btn btn-primary btn-sm"
+            <a href="{{ paginator.previous_page_path | prepend: site.url }}" class="previous btn btn-primary btn-default"
                title="предыдущий стих">
                 <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
             </a>
             {% else %}
-            <a href="{{ paginator.previous_page_path | prepend: site.url }}" class="previous btn btn-primary btn-sm disabled"
+            <a href="{{ paginator.previous_page_path | prepend: site.url }}" class="previous btn btn-primary btn-default disabled"
                title="предыдущий стих">
                 <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
             </a>
@@ -55,12 +55,12 @@ layout: default
 
 
             {% if paginator.next_page %}
-            <a href="{{ paginator.next_page_path | prepend: site.url }}" class="next btn btn-primary btn-sm"
+            <a href="{{ paginator.next_page_path | prepend: site.url }}" class="next btn btn-primary btn-default"
                title="следующий стих">
                 <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
             </a>
             {% else %}
-            <a href="{{ paginator.next_page_path | prepend: site.url }}" class="next btn btn-primary btn-sm disabled"
+            <a href="{{ paginator.next_page_path | prepend: site.url }}" class="next btn btn-primary btn-default disabled"
                title="следующий стих">
                 <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
             </a>
