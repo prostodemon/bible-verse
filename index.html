@@ -1,53 +1,21 @@
 ---
 layout: default
 ---
-<!-- Pagination links -->
-<p>
-    <span class="page_number ">Стих: {{ paginator.page }} из {{ paginator.total_pages }}</span>
-    {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | prepend: site.url }}" class="previous btn btn-primary btn-sm"
-       title="предыдущий стих">
-        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-        предыдущий
-    </a>
-    {% else %}
-    <a href="{{ paginator.previous_page_path | prepend: site.url }}" class="previous btn btn-primary btn-sm disabled"
-       title="предыдущий стих">
-        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-        предыдущий
-    </a>
-    {% endif %}
-
-
-    {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | prepend: site.url }}" class="next btn btn-primary btn-sm right"
-       title="следующий стих">
-        следующий
-        <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-    </a>
-    {% else %}
-    <a href="{{ paginator.next_page_path | prepend: site.url }}" class="next btn btn-primary btn-sm right disabled"
-       title="следующий стих">
-        следующий
-        <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-    </a>
-    {% endif %}
-</p>
 
 {% for post in paginator.posts %}
 <div class="verse">
     <h1 style="font-size: 7vmax; color: #556B2F">{{ post.title }}
 
         <!-- Pagination links -->
-        <div class="pull-right" style="font-size: 5vmax; color: #5b5b5b">
+        <div class="pull-right" style="font-size: 7vmax; color: #5b5b5b">
             <span class="page_number ">{{ paginator.page }} из {{ paginator.total_pages }}</span>
             {% if paginator.previous_page %}
-            <a href="{{ paginator.previous_page_path | prepend: site.url }}" class="previous btn btn-primary btn-default"
+            <a href="{{ paginator.previous_page_path | prepend: site.url }}" class="previous btn btn-primary btn-lg"
                title="предыдущий стих">
                 <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
             </a>
             {% else %}
-            <a href="{{ paginator.previous_page_path | prepend: site.url }}" class="previous btn btn-primary btn-default disabled"
+            <a href="{{ paginator.previous_page_path | prepend: site.url }}" class="previous btn btn-primary btn-lg disabled"
                title="предыдущий стих">
                 <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
             </a>
@@ -55,12 +23,12 @@ layout: default
 
 
             {% if paginator.next_page %}
-            <a href="{{ paginator.next_page_path | prepend: site.url }}" class="next btn btn-primary btn-default"
+            <a href="{{ paginator.next_page_path | prepend: site.url }}" class="next btn btn-primary btn-lg"
                title="следующий стих">
                 <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
             </a>
             {% else %}
-            <a href="{{ paginator.next_page_path | prepend: site.url }}" class="next btn btn-primary btn-default disabled"
+            <a href="{{ paginator.next_page_path | prepend: site.url }}" class="next btn btn-primary btn-lg disabled"
                title="следующий стих">
                 <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
             </a>
