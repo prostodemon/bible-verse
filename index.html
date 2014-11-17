@@ -4,17 +4,17 @@ layout: default
 
 {% for post in paginator.posts %}
 <div class="verse">
-    <h1 style="font-size: 6vmax; color: #556B2F">
+    <h1 style="font-size: 6vmax; color: #556B2F; margin-top: 0;">
         <!-- Pagination links -->
         <div class="pull-right" style="font-size: 4vmax; color: #5b5b5b;">
-            <span class="page_number" style="margin-top: 0.5vmax;">{{ paginator.page }} из {{ paginator.total_pages }}</span>
+            <span class="page_number">{{ paginator.page }} из {{ paginator.total_pages }}</span>
             {% if paginator.previous_page %}
-            <a href="{{ paginator.previous_page_path | prepend: site.url }}" class="previous btn btn-primary btn-lg"
+            <a href="{{ paginator.previous_page_path | prepend: site.url }}" class="previous btn btn-primary btn-default"
                title="предыдущий стих">
                 <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
             </a>
             {% else %}
-            <a href="{{ paginator.previous_page_path | prepend: site.url }}" class="previous btn btn-primary btn-lg disabled"
+            <a href="{{ paginator.previous_page_path | prepend: site.url }}" class="previous btn btn-primary btn-default disabled"
                title="предыдущий стих">
                 <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
             </a>
@@ -22,12 +22,12 @@ layout: default
 
 
             {% if paginator.next_page %}
-            <a href="{{ paginator.next_page_path | prepend: site.url }}" class="next btn btn-primary btn-lg"
+            <a href="{{ paginator.next_page_path | prepend: site.url }}" class="next btn btn-primary btn-default"
                title="следующий стих">
                 <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
             </a>
             {% else %}
-            <a href="{{ paginator.next_page_path | prepend: site.url }}" class="next btn btn-primary btn-lg disabled"
+            <a href="{{ paginator.next_page_path | prepend: site.url }}" class="next btn btn-primary btn-default disabled"
                title="следующий стих">
                 <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
             </a>
@@ -36,7 +36,7 @@ layout: default
         {{ post.title }}
     </h1>
 
-    <div style="font-size: 4vmax; color: #373737">
+    <div style="font-size: 4vmax; color: #373737" class="clearfix">
         {{ post.content }}
     </div>
 </div>
