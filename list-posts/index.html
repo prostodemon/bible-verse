@@ -13,6 +13,9 @@ permalink: /list-posts/
         <p>
             {{ post.content }}
         </p>
+
+        <p>Метки: {{ post | tags }}</p>
+
     </div>
     {% endfor %}
 </ul>
