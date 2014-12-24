@@ -8,7 +8,7 @@ layout: default
         {% for post in site.posts %}
         {% for posttag in post.tags %}
         {% if tag[0] == posttag %}
-            <a href="{{ post.url }}"
+            <a href="{{ site.url }}{{ post.url }}"
                style="padding-right: 10px; font-size: large;">
                 {{ post.title }}</a>
         {% endif %}
@@ -18,11 +18,13 @@ layout: default
 {% endfor %}
 
 
-<h2 >Стихи без меток</h2>
+<h2>
+    <a href="{{ site.url }}/nocat-posts">Стихи без меток</a>
+</h2>
 <p>
 {% for post in site.posts %}
     {% if post.tags.size == 0 %}
-    <a href="{{ post.url }} "
+    <a href="{{ site.url }}{{ post.url }}"
        style="padding-right: 10px; font-size: large;">
         {{ post.title }}</a>
     {% endif %}

@@ -1,46 +1,46 @@
 ---
 layout: default
+title: Все стихи
+permalink: /nocat-posts/
 ---
-<h1 style="margin: 0 0 10px 0">Стихи с меткой '{{ page.tag }}'
 
-    <div class="btn-group pull-right btn-group-lg" role="group" style="margin-top: -5px;">
-        <button type="button" class="v-first btn btn-default btn-lg">
-            <span class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span>
-        </button>
-        <button type="button" class="v-prev btn btn-default btn-lg">
-            <span class=" glyphicon glyphicon-step-backward" aria-hidden="true"></span>
-        </button>
+<div class="btn-group pull-right btn-group-lg" role="group" style="margin-top: -5px;">
+    <button type="button" class="v-first btn btn-default btn-lg">
+        <span class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="v-prev btn btn-default btn-lg">
+        <span class=" glyphicon glyphicon-step-backward" aria-hidden="true"></span>
+    </button>
 
-        <button type="button" class="btn btn-default btn-lg disabled">
-           <span>
-                <span class="v-num">1</span>
-                <span>/{{ page.posts.size }}</span>
-            </span>
-        </button>
+    <button type="button" class="btn btn-default btn-lg disabled">
+       <span>
+            <span class="v-num">1</span>
+            <span>/</span>
+            <span class="v-count">1</span>
+        </span>
+    </button>
 
-        <button type="button" class="v-next btn btn-default btn-lg">
-            <span class=" glyphicon glyphicon-step-forward" aria-hidden="true"></span>
-        </button>
-        <button type="button" class="v-last btn btn-default btn-lg">
-            <span class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span>
-        </button>
+    <button type="button" class="v-next btn btn-default btn-lg">
+        <span class=" glyphicon glyphicon-step-forward" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="v-last btn btn-default btn-lg">
+        <span class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span>
+    </button>
 
-    </div>
-
-</h1>
-
-{% for post in page.posts %}
-<div class="verse">
-    <h2 style="font-size: 6vmax; color: #556B2F; margin-top: 0;">
-        <a href="{{ post.url }}">{{ post.title }}</a>
-    </h2>
-
-    <div style="font-size: 4vmax; color: #373737" class="clearfix">
-        {{ post.content }}
-    </div>
-    <p>Метки: {{ post | tags }}</p>
 </div>
 
+{% for post in site.posts %}
+    {% if post.tags.size == 0 %}
+        <div class="verse">
+            <h2 style="font-size: 6vmax; color: #556B2F; margin-top: 0;">
+                <a href="{{ post.url }}">{{ post.title }}</a>
+            </h2>
+
+            <div style="font-size: 4vmax; color: #373737" class="clearfix">
+                {{ post.content }}
+            </div>
+        </div>
+    {% endif %}
 {% endfor %}
 
 <script>
@@ -75,6 +75,8 @@ layout: default
     }
 
     $(document).ready(function () {
+        $('.v-count').html($('.verse').length);
+
         $('.v-first').click(function () {
             goToVerse(0);
         });
@@ -94,13 +96,6 @@ layout: default
         goToVerse(parseInt($('.v-num').html())-1);
     });
 </script>
-
-
-
-
-
-
-
 
 
 
