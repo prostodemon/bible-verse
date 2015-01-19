@@ -59,6 +59,32 @@
         <h1 style="margin: 0 0 10px 0">Стихи с меткой 'Благодарность'
 
     <div class="btn-group pull-right btn-group-lg" role="group" style="margin-top: -5px;">
+        <button type="button" class="v-play btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+        </button>
+
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <span class="glyphicon glyphicon-cog " aria-hidden="true"> </span>
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" style="width: 20px;">
+                <li style="margin: 5px 10px;">
+                    <div class="btn-group delay-group" data-toggle="buttons">
+                        <label class="btn btn-default btn-block ">
+                            <input type="radio" name="delay" value="3000" autocomplete="off" checked> 3 сек
+                        </label>
+                        <label class="btn btn-default btn-block active">
+                            <input type="radio" name="delay" value="5000"  autocomplete="off"> 5 сек
+                        </label>
+                        <label class="btn btn-default btn-block">
+                            <input type="radio" name="delay" value="7000" autocomplete="off"> 7 сек
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
         <button type="button" class="v-first btn btn-default btn-lg">
             <span class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span>
         </button>
@@ -191,11 +217,54 @@
             $('.v-next').removeClass('disabled');
             $('.v-last').removeClass('disabled');
         }
-
-
     }
 
+    function play() {
+        $('.v-play').toggleClass('active');
+        if ($('.v-play').hasClass('active')) {
+            $('.v-play span').removeClass('glyphicon-play');
+            $('.v-play span').addClass('glyphicon-stop');
+            looper.on = true;
+            looper.loop();
+        } else {
+            looper.on = false;
+            $('.v-play span').removeClass('glyphicon-stop');
+            $('.v-play span').addClass('glyphicon-play');
+        }
+    }
+
+    function Looper(t, d) {
+        this.targetFunction = t;
+        this.getDelay = d;
+    }
+    Looper.prototype.on = false;
+    Looper.prototype.targetFunction = function () { /* override */ };
+    Looper.prototype.getDelay = function  () { /* override */ };
+    Looper.prototype.loop = function() {
+        if(this.on) {
+           setTimeout(this.targetFunction, this.getDelay());
+        }
+    };
+
     $(document).ready(function () {
+        looper = new Looper(function() {
+            if(!looper.on) {
+                return;
+            }
+
+            if ( !$('.v-next').hasClass('disabled')) {
+                $('.v-next').click();
+            } else if ( !$('.v-first').hasClass('disabled')) {
+                $('.v-first').click();
+            } else {
+                looper.on = false;
+            }
+            looper.loop();
+        }, function() {
+            return $('.delay-group > .btn.active > input').val();
+        });
+
+
         $('.v-first').click(function () {
             goToVerse(0);
         });
@@ -204,6 +273,7 @@
             goToVerse(currentVerse - 1);
         });
 
+
         $('.v-last').click(function () {
             goToVerse($('.verse').length - 1);
         });
@@ -211,6 +281,11 @@
             var currentVerse = parseInt($('.v-num').html())-1;
             goToVerse(currentVerse + 1);
         });
+
+
+        $('.v-play').click(function() {
+           play();
+        } );
 
         goToVerse(parseInt($('.v-num').html())-1);
     });
