@@ -4,6 +4,24 @@ layout: default
 <h1 style="margin: 0 0 10px 0">Стихи с меткой '{{ page.tag }}'
 
     <div class="btn-group pull-right btn-group-lg" role="group" style="margin-top: -5px;">
+        <button type="button" class="v-play btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+        </button>
+
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <span class="glyphicon glyphicon-cog " aria-hidden="true"> </span>
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#"></a></li>
+                <li><a href="#">Dropdown link</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="btn-group pull-right btn-group-lg" role="group" style="margin-top: -5px;">
         <button type="button" class="v-first btn btn-default btn-lg">
             <span class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span>
         </button>
@@ -25,9 +43,7 @@ layout: default
             <span class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span>
         </button>
 
-    </div>
-
-</h1>
+    </div></h1>
 
 {% for post in page.posts %}
 <div class="verse">
@@ -70,7 +86,9 @@ layout: default
             $('.v-next').removeClass('disabled');
             $('.v-last').removeClass('disabled');
         }
+    }
 
+    function play() {
 
     }
 
