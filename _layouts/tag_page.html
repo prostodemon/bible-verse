@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<h1 style="margin: 0 0 10px 0">Стихи с меткой '{{ page.tag }}'
+<h1 style="margin: 0 0 10px 0">{{ page.tag }}
 
     <div class="btn-group pull-right btn-group-lg" role="group" style="margin-top: -5px;">
         <button type="button" class="v-play btn btn-default btn-lg">
@@ -19,8 +19,14 @@ layout: default
                         <label class="btn btn-default btn-block ">
                             <input type="radio" name="delay" value="3000" autocomplete="off" checked> 3 сек
                         </label>
+                        <label class="btn btn-default btn-block ">
+                            <input type="radio" name="delay" value="4000" autocomplete="off"> 4 сек
+                        </label>
                         <label class="btn btn-default btn-block active">
-                            <input type="radio" name="delay" value="5000"  autocomplete="off"> 5 сек
+                            <input type="radio" name="delay" value="5000" autocomplete="off"> 5 сек
+                        </label>
+                        <label class="btn btn-default btn-block">
+                            <input type="radio" name="delay" value="6000" autocomplete="off"> 6 сек
                         </label>
                         <label class="btn btn-default btn-block">
                             <input type="radio" name="delay" value="7000" autocomplete="off"> 7 сек
